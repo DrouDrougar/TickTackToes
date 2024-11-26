@@ -37,6 +37,8 @@ namespace TickTackToes
                
                 foreach (var item in buttons)
                 {
+                    //i could replace the random with more thought trough placements, Like midmaxing, but honestly i spent way to much time trying to just get it to click the button as is..
+                    //
                     button = buttons[rand.Next(9)];
                     if (button.Content == null || button.Content == String.Empty)
                     {
