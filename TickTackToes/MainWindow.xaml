@@ -1,0 +1,47 @@
+﻿<Window x:Class="TickTackToes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TickTackToes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1044">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="48" />
+            <EventSetter Event="Click" Handler="PlayerClickSpace" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="GridBoard" RenderTransformOrigin="0.5,0.5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--We add the tags to get their grid coordianates for the GameLogic-->
+            <Button x:Name="Grid7" Tag="0,0"                                Background="White"/>
+            <Button x:Name="Grid4" Tag="0,1"                  Grid.Row="1"  Background="White"/>
+            <Button x:Name="Grid1" Tag="0,2"                  Grid.Row="2"  Background="White"/>
+            <Button x:Name="Grid8" Tag="1,0" Grid.Column="1"                Background="White"/>
+            <Button x:Name="Grid5" Tag="1,1" Grid.Column="1"  Grid.Row="1"  Background="White"/>
+            <Button x:Name="Grid2" Tag="1,2" Grid.Column="1"  Grid.Row="2"  Background="White"/>
+            <Button x:Name="Grid9" Tag="2,0" Grid.Column="2"                Background="White"/>
+            <Button x:Name="Grid6" Tag="2,1" Grid.Column="2"  Grid.Row="1"  Background="White"/>
+            <Button x:Name="Grid3" Tag="2,2" Grid.Column="2"  Grid.Row="2"  Background="White"/>
+        </Grid>
+        <TextBlock x:Name="WinScreen" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="60" Background="DarkGoldenrod" Visibility="Collapsed"> You have Won!!</TextBlock>
+        <Button Content="Reset" RenderTransformOrigin="0.262,-0.57" Click="NewGame" Grid.Row="1"/>
+    </Grid>
+</Window>
